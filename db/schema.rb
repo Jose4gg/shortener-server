@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2019_04_02_185558) do
 
   create_table "websites", force: :cascade do |t|
     t.string "url", null: false
-    t.string "short_id"
     t.boolean "processing_title", default: true
     t.integer "visited_count", default: 0
     t.datetime "created_at", null: false
