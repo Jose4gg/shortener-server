@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2019_04_02_185558) do
     t.integer "visited_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["short_id"], name: "index_websites_on_short_id", unique: true
     t.index ["url"], name: "index_websites_on_url", unique: true
   end
 

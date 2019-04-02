@@ -9,6 +9,6 @@ class CreateWebsites < ActiveRecord::Migration[5.2]
     end
 
     add_index :websites, :url, unique: true
-    add_index :websites, :short_id, unique: true
+    # add_index :websites, :short_id, unique: true
   end
 end
