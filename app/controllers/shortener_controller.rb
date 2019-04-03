@@ -22,6 +22,10 @@ class ShortenerController < ApplicationController
     redirect_to website.url =~ /https?:\/\/[\S]+/ ? website.url : "//#{website.url}"
   end
 
+  def index
+    render json: Website.order(visited_count: :desc).limit(100), methods: :short_id
+  end
+
   rescue_from ActionController::ParameterMissing do |exception|
     render json: { "errors" => ["#{exception.param} is required"] }, status: 400
   end
