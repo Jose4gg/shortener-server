@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2019_04_02_185558) do
   enable_extension "plpgsql"
 
   create_table "websites", force: :cascade do |t|
+    t.text "title"
     t.string "url", null: false
     t.boolean "processing_title", default: true
     t.integer "visited_count", default: 0
