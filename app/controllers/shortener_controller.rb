@@ -2,15 +2,15 @@ class ShortenerController < ApplicationController
 
   def create
     params.require(:url)
-    url = params[:url].chomp "/"
+    url = params[:url].chomp "/".downcase
 
     website = Website.find_or_initialize_by(url: url)
 
 
     if website.persisted?
-      render json: { short_url: request.base_url + "/#{website.short_id}", visited_count: website.visited_count }
+      render json: website, methods: :short_url
     elsif website.save
-      render json: { short_url: request.base_url + "/#{website.short_id}", visited_count: website.visited_count }
+      render json: website, methods: :short_url
     else
       render json: { errors: website.errors.values.flatten }
     end
