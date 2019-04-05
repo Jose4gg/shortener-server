@@ -5,9 +5,12 @@
 ## Requirements
 
 - Ruby 2.5.3, bundler, and PostgreSQL installed on the machine.
+- Redis installed and running.
 - bundle install to download the required dependencies.
 - Run the rails db migration on the console with `rake db:migrate`
 - An .env file is needed containing the key PUBLIC_HOST. The value for this key should be the baseURL where the server is running, ex: http://localhost:3000
+- To run the api the command `rails s`
+- To run the worker the command `bundle exec sidekiq`
 
 ## How the shortener works
 
