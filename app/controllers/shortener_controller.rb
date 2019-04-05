@@ -23,7 +23,7 @@ class ShortenerController < ApplicationController
   end
 
   def index
-    render json: Website.order(visited_count: :desc).limit(100), methods: :short_id
+    render json: Website.order(visited_count: :desc).limit(100), methods: :short_url
   end
 
   rescue_from ActionController::ParameterMissing do |exception|
