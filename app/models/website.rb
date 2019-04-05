@@ -10,6 +10,6 @@ class Website < ApplicationRecord
   after_create :search_title
 
   def search_title
-    WebScraperTitleWorker.perform_async(self.url)
+    WebScraperTitleWorker.perform_async(self.url) if self.title.nil?
   end
 end
